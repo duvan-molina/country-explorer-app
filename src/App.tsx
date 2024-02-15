@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 
 import CityTableComponent from "./components/CityTable.component";
-import countries from "./services/countries.json";
+import CountriesContext from "./context/countries/CountriesContext";
 
 import "./App.css";
 
-function App() {
-  const [data] = useState(() => [...countries]);
+const App = () => {
+  const { getAllCountries } = useContext(CountriesContext);
 
-  return <CityTableComponent data={data} />;
-}
+  useEffect(() => {
+    getAllCountries();
+  }, []);
+
+  return <CityTableComponent />;
+};
 
 export default App;

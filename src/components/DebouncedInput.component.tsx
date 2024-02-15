@@ -5,7 +5,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 function DebouncedInput({
   value: initialValue,
   onChange,
-  debounce = 500,
+  debounce = 300,
   ...props
 }: {
   value: string | number;
