@@ -5,7 +5,7 @@
 - first clone the project using [git](https://git-scm.com/) `git clone: https://github.com/duvan-molina/country-explorer-app.git`
 - then we go to the project directory and install the dependencies with npm `cd country-explorer-app && npm i`
 - We need to create an .env file in the root of our project and add an environment variable called **VITE_API_KEY=** following the guide in the .env.example file
-- para correr el proyecto en nuestro local usamos el siguiente comando: `npm run dev`
+- To run the project on our premises we use the following command: `npm run dev`
 - The project should now be running at http://localhost:5173
 
 ## requirements
