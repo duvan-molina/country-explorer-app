@@ -60,38 +60,35 @@ const DraggableTableHeader = ({
             desc: <ArrowUpIcon transform="rotate(180deg)" />,
           }[header.column.getIsSorted() as string] ?? null}
 
-          {header.id !== "Actions" && (
-            <Button
-              outline="unstyled"
-              background="transparent"
-              css={{
-                "&:hover": {
-                  background: "transparent",
-                  borderColor: "transparent",
-                },
-              }}
-              mx={2}
-              cursor={isDragging ? "grabbing" : "grab"}
-              {...attributes}
-              {...listeners}
-            >
-              <DragHandleIcon />
-            </Button>
-          )}
-        </Box>
-        {header.id !== "Actions" && (
-          <Divider
-            orientation="vertical"
-            height={10}
-            borderLeftWidth={4}
-            cursor="col-resize"
-            {...{
-              onDoubleClick: () => header.column.resetSize(),
-              onMouseDown: header.getResizeHandler(),
-              onTouchStart: header.getResizeHandler(),
+          <Button
+            outline="unstyled"
+            background="transparent"
+            css={{
+              "&:hover": {
+                background: "transparent",
+                borderColor: "transparent",
+              },
             }}
-          />
-        )}
+            mx={2}
+            cursor={isDragging ? "grabbing" : "grab"}
+            {...attributes}
+            {...listeners}
+          >
+            <DragHandleIcon />
+          </Button>
+        </Box>
+
+        <Divider
+          orientation="vertical"
+          height={10}
+          borderLeftWidth={4}
+          cursor="col-resize"
+          {...{
+            onDoubleClick: () => header.column.resetSize(),
+            onMouseDown: header.getResizeHandler(),
+            onTouchStart: header.getResizeHandler(),
+          }}
+        />
       </Box>
     </Th>
   );
