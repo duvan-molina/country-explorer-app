@@ -12,3 +12,6 @@
 
 - Have [git](https://git-scm.com/) installed
 - Have a version of [node](https://nodejs.org/en) 18 or higher
+
+## To pull the changes
+-  we use the following command: `git pull origin ${branchName}` and this case is `git pull origin main`
