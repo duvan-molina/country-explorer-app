@@ -1,4 +1,4 @@
-import { Box, Button, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Select, Text } from "@chakra-ui/react";
 
 type Props = {
   getCanPreviousPage: boolean;
@@ -7,7 +7,9 @@ type Props = {
   handleSetPageIndex: (page: number) => void;
   handleClickNextPage: () => void;
   handleClickPreviousPage: () => void;
+  setPageSize: (size: number) => void;
   paginationIndex: number;
+  pageSize: number;
 };
 
 const PaginationComponent: React.FC<Props> = ({
@@ -18,15 +20,31 @@ const PaginationComponent: React.FC<Props> = ({
   getPageCount,
   handleClickNextPage,
   paginationIndex,
+  pageSize,
+  setPageSize,
 }) => {
   return (
     <Box
       display="flex"
       alignItems="center"
       justifyContent="space-between"
-      p={4}
+      pt={4}
     >
-      <Box m="auto">
+      <Box>
+        <Select
+          value={pageSize}
+          onChange={(e) => {
+            setPageSize(Number(e.target.value));
+          }}
+        >
+          {[2, 4, 6, 8, 10, 20, 40].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </Select>
+      </Box>
+      <Box>
         <Button
           size="xs"
           variant="ghost"
