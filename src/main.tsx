@@ -6,10 +6,11 @@ import App from "./App.tsx";
 
 import "./index.css";
 import CountriesState from "./context/countries/CountriesState.tsx";
+import theme from "./config/theme.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <CountriesState>
         <App />
       </CountriesState>
